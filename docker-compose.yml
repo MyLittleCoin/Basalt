@@ -7,10 +7,10 @@ web:
 web_migrate:
     extends:
       service: web
-    command: python manage.py migrate
+    command: python dragonnotes/manage.py migrate
 web_run:
     extends:
       service: web
-    command: python manage.py runserver 0.0.0.0:8000
+    command: python dragonnotes/manage.py runserver 0.0.0.0:8000
     ports:
       - "5000:8000"
