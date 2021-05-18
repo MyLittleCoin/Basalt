@@ -91,19 +91,3 @@ class FileView(APIView):
         else:
             return Response(project[0].errors, status=status.HTTP_400_BAD_REQUEST)
     
-'''
-class FileUploadView(APIView):
-    parser_classes = (FileUploadParser, )
-
-    def post(self, request, format='jpg'):
-        up_file = request.FILES['file']
-        destination = open('/Users/Username/' + up_file.name, 'wb+')
-        for chunk in up_file.chunks():
-            destination.write(chunk)
-        destination.close()  # File should be closed only after all chuns are added
-
-        # ...
-        # do some stuff with uploaded file
-        # ...
-        return Response(up_file.name, status.HTTP_201_CREATED)
-'''
