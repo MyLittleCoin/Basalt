@@ -4,7 +4,7 @@ services:
       environment:
         MYENV: EXAMPLE
       volumes:
-        - data:/var/www/basalt_data
+        - data:/code
   web_migrate:
       extends:
         service: web
@@ -16,5 +16,5 @@ services:
       ports:
         - "5000:8000"
 volumes:
-  data: 
-      external: true
+  data:
+    external: true
