@@ -1,20 +1,21 @@
-services:
-web:
-    build: .
-    environment:
-      MYENV: EXAMPLE
-    volumes:
-      - data:/var/www
-web_migrate:
-    extends:
-      service: web
-    command: python dragonnotes/manage.py migrate
-web_run:
-    extends:
-      service: web
-    command: python dragonnotes/manage.py runserver 0.0.0.0:8000
-    ports:
-      - "5000:8000"
+version: "3"
+services: 
+  web:
+      build: .
+      environment:
+        MYENV: EXAMPLE
+      volumes:
+        - data:/var/www/basalt_data
+  web_migrate:
+      extends:
+        service: web
+      command: python dragonnotes/manage.py migrate
+  web_run:
+      extends:
+        service: web
+      command: python dragonnotes/manage.py runserver 0.0.0.0:8000
+      ports:
+        - "5000:8000"
 volumes:
-    data: 
+  data: 
       external: true
