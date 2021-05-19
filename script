@@ -2,5 +2,4 @@
 
 sudo docker stop $(sudo docker ps -a -q)
 cd /home/ubuntu/jenkins/workspace/Test_Docker/
-sudo docker-compose build
-sudo docker-compose up -d
+sudo docker-compose up --detach --build
