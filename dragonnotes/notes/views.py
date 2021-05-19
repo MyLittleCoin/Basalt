@@ -52,7 +52,7 @@ class ProjectDownload(APIView):
         """
         #print(request.auth)
         _user = Token.objects.get(key=request.auth).user
-        _name = request.query_params["name"]
+        _name = request.query_params["nameProject"]
         project = Project.objects.filter(author=_user, name = _name)
         #print(project[0].file)
         #print(str(project[0].file)[9:])
