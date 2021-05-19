@@ -57,7 +57,7 @@ class ProjectDownload(APIView):
         #print(project[0].file)
         #print(str(project[0].file)[9:])
         #'C:\\Users\\tkorg\\Projects\\DragonNotes\\dragonnotes\\media\\'
-        with open(settings.MEDIA_ROOT+"/"+str(project[0].file), 'rb') as file:
+        with open((project[0].file), 'rb') as file:
             response = HttpResponse(file, content_type='zip')
             response['Content-Disposition'] = 'attachment; filename='+ str(project[0].file)[9:]
             return response
