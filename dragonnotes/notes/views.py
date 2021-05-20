@@ -52,12 +52,12 @@ class ProjectDownload(APIView):
         """
         #print(request.auth)
         _user = Token.objects.get(key=request.auth).user
-        _name = request.query_params["nameProject"]
+        _name = request.query_params["name"]
         project = Project.objects.filter(author=_user, name = _name)
         #print(project[0].file)
         #print(str(project[0].file)[9:])
         #'C:\\Users\\tkorg\\Projects\\DragonNotes\\dragonnotes\\media\\'
-        with open((project[0].file), 'rb') as file:
+        with open(settings.MEDIA_ROOT+"/"+str(project[0].file), 'rb') as file:
             response = HttpResponse(file, content_type='zip')
             response['Content-Disposition'] = 'attachment; filename='+ str(project[0].file)[9:]
             return response

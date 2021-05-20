@@ -29,6 +29,7 @@ urlpatterns = [
     path('projects/', include('notes.urls')),
     path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
+    path('admins/', admin.site.urls),
 ]
 
 if settings.DEBUG:
